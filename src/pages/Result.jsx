@@ -1,9 +1,7 @@
-import React from 'react'
-
-export const Result = () => {
+const Result = () => {
   return (
-    <div>Result Page
-        
-    </div>
+    <div>Result Page</div>
   )
 }
+
+export default Result

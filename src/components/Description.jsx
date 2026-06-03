@@ -14,10 +14,10 @@ const Description = () => {
       <div className='flex flex-col gap-5 md:gap-14 md:flex-row items-center'>
         <img src={assets.sample_img_1} alt="" className='w-80 xl:w-96 rounded-lg'/>
       <div>
-        <h2>
+        <h2 className='text-gray-600 mb-4'>
             Introducing the AI-powered Text to Image Generator
         </h2>
-        <p>
+        <p className='text-gray-600'>
             Introducing the AI-powered Text to Image Generator, a smart tool that transforms your written ideas into stunning visuals within seconds. Simply describe what you imagine, and the AI brings it to life with creative and detailed images, making design, storytelling, and content creation faster and more accessible than ever.
 
         </p>

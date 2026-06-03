@@ -5,7 +5,9 @@ const Result = () => {
 
   const [image, setImage] = useState(assets.sample_img_1);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+const [loading,setLoading] = useState(false)
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsImageLoaded(true);
@@ -20,10 +22,14 @@ const Result = () => {
       <div className='relative'>
         <img src={image} alt="" className='max-w-sm rounded' />
 
-        <span className='absolute bottom-0 left-0 h-1 bg-blue-500 w-full transition-all duration-[10s]'></span>
+<span
+  className={`absolute bottom-0 left-0 h-1 bg-blue-500 ${
+    loading ? 'w-full transition-all duration-[10s]' : 'w-0'
+  }`}
+/>
       </div>
 
-      <p className='mt-3'>Loading...</p>
+      <p className={!loading ? 'hidden': ''}>Loading...</p>
 
       {!isImageLoaded && (
         <div className='flex w-full max-w-xl bg-neutral-500 text-white text-sm p-0.5 mt-10 rounded-full'>
@@ -45,7 +51,7 @@ const Result = () => {
       {isImageLoaded && (
         <div className='flex gap-2 flex-wrap justify-center text-white text-sm p-0.5 mt-10 rounded-full'>
           
-          <p className='bg-transparent border border-zinc-900 text-black px-8 py-3 rounded-full cursor-pointer'>
+          <p onClick={()=>{setIsImageLoaded(false)}}className='bg-transparent border border-zinc-900 text-black px-8 py-3 rounded-full cursor-pointer'>
             Generate Another
           </p>
 

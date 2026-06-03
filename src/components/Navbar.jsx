@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { assets } from "../assets/assets";
+import { AppContext } from '../context/AppContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 const Navbar = () => {
-  const [user, setUser] = useState(true);
+const {user} = useContext(AppContext)
 
 const navigate = useNavigate()
 
@@ -18,16 +20,16 @@ const navigate = useNavigate()
           <div className='flex items-center gap-2 sem:gap-3'>
 <button className='flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700'>
     <img className='w-5' src={assets.credit_star} alt=""/>
- <p>Credits left: 50</p>
+ <p className='text-xs sm:text-sm font-m text-gray-600'>Credits left: 50</p>
 </button>
-<p>
+<p className='text-gray-600 max-sm:hidden p1-4'>
     Hi, Shanzay
 </p>
 <div className='relative group'>
     <img  src={assets.profile_icon} className='w-10 drop-shadow' alt=""/>
 <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12">
-<ul>
-    <li>
+<ul className='list-none m-0 p-2 bg-white rounded-md border text-sm'>
+    <li className='py-1 px-2 cursor-pointer'>
         Logout
     </li>
 </ul>

@@ -6,7 +6,7 @@ const Result = () => {
   const [image, setImage] = useState(assets.sample_img_1);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 const [loading,setLoading] = useState(false)
-
+const [input, setInput] = setState('')
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,6 +34,7 @@ const [loading,setLoading] = useState(false)
       {!isImageLoaded && (
         <div className='flex w-full max-w-xl bg-neutral-500 text-white text-sm p-0.5 mt-10 rounded-full'>
           <input
+          onChange={e=> setInput(e.target.value)} value={input}
             type="text"
             placeholder='Describe what you want to generate'
             className='flex-1 bg-transparent outline-none ml-8 max-sm:w-20'

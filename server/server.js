@@ -7,14 +7,15 @@ import userRouter from './routes/userRoutes.js'
 const PORT = process.env.PORT || 4000
 const app = express()
 
+// 1. Middlewares (Declare only once)
 app.use(express.json())
 app.use(cors())
 
+// 2. Database connection
 await connectDB()
 
+// 3. Routes
 app.get('/', (req, res) => res.send("API Working"))
-
-// ✅ IMPORTANT LINE
 app.use('/api/user', userRouter)
 
 app.listen(PORT, () => console.log('Server running on port ' + PORT))

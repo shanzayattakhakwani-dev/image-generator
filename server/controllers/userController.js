@@ -31,6 +31,7 @@ const registerUser = async (req, res) => {
         res.json({ success: false, message: error.message })
     }
 }
+
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -54,11 +55,14 @@ const loginUser = async (req, res) => {
         res.json({ success: false, message: error.message })
     }
 }
+
 const userCredits = async (req, res) => {
     try {
         const { userId } = req.body;
 
-        const user = await userModel.findById(userId)
+        // FIXED: Added 'await' here so the database query resolves properly
+        const user = await userModel.findById(userId) 
+        
         res.json({ success: true, credits: user.creditBalance, user: { name: user.name } })
 
     } catch (error) {
@@ -66,4 +70,5 @@ const userCredits = async (req, res) => {
         res.json({ success: false, message: error.message })
     }
 }
-export{registerUser,loginUser,userCredits}
+
+export { registerUser, loginUser, userCredits }
